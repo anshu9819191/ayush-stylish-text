@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AYUSH POST WRITER</title>
+    <style>
+        body { font-family: Arial, sans-serif; background:#111; color:white; text-align:center; }
+        h1 { color:#ff0080; }
+        textarea { width:80%; height:120px; border-radius:10px; padding:10px; font-size:16px; }
+        button { margin:10px; padding:10px 20px; border:none; border-radius:10px; background:#ff0080; color:white; cursor:pointer; }
+        button:hover { background:#ff4db8; }
+        .output { margin-top:20px; padding:15px; background:#222; border-radius:15px; white-space:pre-wrap; }
+        .copy-btn { background:#00c8ff; }
+    </style>
+    <script>
+        function copyText() {
+            let text = document.getElementById("result").innerText;
+            navigator.clipboard.writeText(text);
+            alert("Copied!");
+        }
+    </script>
+</head>
+<body>
+    <h1>AYUSH POST WRITER ⚡</h1>
+    <form method="POST">
+        <textarea name="user_text" placeholder="Yahan apna text paste karo..." required></textarea><br>
+        <button type="submit" name="option" value="1">Option 1</button>
+        <button type="submit" name="option" value="2">Option 2</button>
+        <button type="submit" name="option" value="3">Option 3</button>
+        <button type="submit" name="option" value="4">Option 4 (Mix)</button>
+    </form>
+
+    {% if result %}
+    <div class="output" id="result">{{ result }}</div>
+    <button class="copy-btn" onclick="copyText()">Copy Output</button>
+    {% endif %}
+</body>
+      </html>
